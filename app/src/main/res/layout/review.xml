@@ -23,9 +23,11 @@
         style="?android:attr/ratingBarStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:progressTint="#FFFF00"
         android:numStars="5"
         android:stepSize="0.5"
         android:layout_marginTop="24dp"
+        android:isIndicator="false"
         app:layout_constraintTop_toBottomOf="@id/tvLeaveReviewTitle"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -41,7 +43,37 @@
         app:layout_constraintTop_toTopOf="@id/ratingBarInput"
         app:layout_constraintBottom_toBottomOf="@id/ratingBarInput" />
 
+    <TextView
+        android:id="@+id/tvNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Name:"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/ratingBarInput"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/etReviewerName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autofillHints="name"
+        android:hint="Enter your name"
+        android:inputType="textPersonName"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tvNameLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <!-- Review text input -->
+    <TextView
+        android:id="@+id/tvReviewLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Review:"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/etReviewerName"
+        app:layout_constraintStart_toStartOf="parent"/>
+
     <EditText
         android:id="@+id/etReviewText"
         android:layout_width="0dp"
@@ -50,8 +82,8 @@
         android:inputType="textMultiLine"
         android:gravity="top"
         android:minHeight="120dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/ratingBarInput"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tvReviewLabel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/btnSubmitReview" />

@@ -67,6 +67,7 @@
                 android:isIndicator="true"
                 android:numStars="5"
                 android:rating="4.69"
+                android:progressTint="#FFFF00"
                 android:stepSize="0.5" />
         </LinearLayout>
     </LinearLayout>
@@ -90,6 +91,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="Leave Review"
+        android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="16dp" />
