@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     // imported for firebase
     implementation(libs.firebase.database.ktx)
+    implementation(libs.play.services.ads.api)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
