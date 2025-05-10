@@ -10,10 +10,13 @@ class Restaurant {
     private var numRatings : Int = 0
     private lateinit var reviews : ArrayList<Review>
 
-    constructor(name : String, category : String) {
+    constructor(name : String, category : String, totalRating : Float, numRatings : Int, averageRating : Float) {
         this.name = name
         this.category = category
         this.reviews = ArrayList()
+        this.totalRating = totalRating
+        this.numRatings = numRatings
+        this.averageRating = averageRating
     }
 
     fun getName() : String {
@@ -26,6 +29,10 @@ class Restaurant {
 
     fun getReviews() : ArrayList<Review> {
         return this.reviews
+    }
+
+    fun getAverageRating() : Float {
+        return this.averageRating
     }
 
     fun addReview(review : Review) {

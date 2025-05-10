@@ -41,4 +41,8 @@ class Review {
     fun getURL() : String {
         return this.url
     }
+
+    fun getReviewText() : String {
+        return this.reviewText
+    }
 }
