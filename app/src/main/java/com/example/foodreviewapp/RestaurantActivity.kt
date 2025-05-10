@@ -30,6 +30,7 @@ class RestaurantActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView;
     private lateinit var reviewsAdapter: ReviewsAdapter
     private lateinit var reviewButton : FloatingActionButton
+    private lateinit var name : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -43,7 +44,7 @@ class RestaurantActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         reviewsAdapter = ReviewsAdapter(emptyList())
         recyclerView.adapter = reviewsAdapter
-
+        name = intent.getStringExtra("NAME") ?: ""
 
         fetchFirebaseData()
 
@@ -51,14 +52,14 @@ class RestaurantActivity : AppCompatActivity() {
         reviewButton.setOnClickListener {
 
             val intent : Intent = Intent(this, ProcessReview::class.java)
-            intent.putExtra("NAME", "Chickfila")
+            intent.putExtra("NAME", name)
             startActivity(intent)
         }
 
     }
 
     private fun fetchFirebaseData() {
-        val restaurantRef = FirebaseDatabase.getInstance().getReference("Chickfila")
+        val restaurantRef = FirebaseDatabase.getInstance().getReference(name)
         restaurantRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val avgRating = snapshot.child("AverageRating").getValue(Float::class.java) ?: 0f
@@ -66,7 +67,7 @@ class RestaurantActivity : AppCompatActivity() {
                 val numRating = snapshot.child("NumRating").getValue(Int::class.java) ?: 0
                 val totalRating = snapshot.child("TotalRating").getValue(Float::class.java) ?: 0f
 
-                restaurant = Restaurant("Chickfila", category, totalRating, numRating, avgRating);
+                restaurant = Restaurant(name, category, totalRating, numRating, avgRating);
 
                 val reviewsSnapshot = snapshot.child("Reviews")
 
