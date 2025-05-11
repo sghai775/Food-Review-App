@@ -42,7 +42,7 @@
         android:id="@+id/btnGoToAddRestaurant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Restaurant"
+        android:text="@string/add_restaurant_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/banner_ad"
         android:layout_margin="16dp" />

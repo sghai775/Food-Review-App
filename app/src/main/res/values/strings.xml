@@ -2,4 +2,15 @@
     <string name="app_name">Food Review App</string>
     <string name="search_screen_title">Restaurant Reviewer</string>
     <string name="search_hint">Search Here</string>
+    <string name="add_restaurant_button">Add Restaurant</string>
+    <string name="restaurant_view_name">Restaurant Name</string>
+    <string name="restaurant_view_category">Category:</string>
+    <string name="leave_review_button">Leave Review</string>
+    <string name="leave_a_review_title">Leave a Review</string>
+    <string name="enter_your_name_review">Enter your name</string>
+    <string name="write_your_review">Write your review here…</string>
+    <string name="submit_review">Submit Review</string>
+    <string name="your_review_title">Your Review:</string>
+    <string name="your_review_name_title">Your Name:</string>
+    <string name="favorite_restaurant_text">This is your favorite restaurant!</string>
 </resources>
