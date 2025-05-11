@@ -1,11 +1,15 @@
 package com.example.foodreviewapp
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -32,6 +36,9 @@ class RestaurantActivity : AppCompatActivity() {
     private lateinit var reviewButton : FloatingActionButton
     private lateinit var name : String
     private lateinit var backButton : FloatingActionButton
+    private lateinit var pref : SharedPreferences
+    private lateinit var editor : SharedPreferences.Editor
+    private lateinit var favButton : FloatingActionButton
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -65,6 +72,13 @@ class RestaurantActivity : AppCompatActivity() {
 
         }
 
+        pref = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+        editor =  pref.edit()
+        favButton = findViewById(R.id.favButton)
+        favButton.setOnClickListener{
+            editor.putString("favorite", restaurantName.text.toString())
+            editor.apply()
+        }
     }
 
     private fun fetchFirebaseData() {
@@ -100,11 +114,19 @@ class RestaurantActivity : AppCompatActivity() {
                 recyclerView.adapter = reviewsAdapter
 
                 restaurantName.text = restaurant.getName()
-                val categoryText : String = "Type of Food: ${restaurant.getCategory()}"
+                val categoryText : String = "Category: ${restaurant.getCategory()}"
                 typeOfFood.text = categoryText
                 val ratingText : String = "Rating: %.2f".format(restaurant.getAverageRating())
                 averageRating.text = ratingText
                 rating.rating = restaurant.getAverageRating()
+
+                val favorite = pref.getString("favorite", null)
+                val headerLayout : LinearLayout = findViewById(R.id.restaurant_info_section)
+                val favIndicator : TextView = findViewById(R.id.fav_indicator)
+                if(favorite != null && favorite == restaurant.getName()) {
+                    headerLayout.setBackgroundColor(Color.argb(255,255,165,5))
+                    favIndicator.visibility = View.VISIBLE
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.ArrayAdapter
@@ -82,8 +83,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         // listens for the user typing and searching in the autocomplete
-        autoComplete.setOnEditorActionListener { v, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_DONE) {
+        autoComplete.setOnEditorActionListener { v, _, event ->
+            if (event.action == KeyEvent.ACTION_DOWN && event.keyCode == KeyEvent.KEYCODE_ENTER) {
                 val typed = v.text.toString().trim()
                 if (typed.isNotEmpty()) {
                     goToRestaurantView(typed)
