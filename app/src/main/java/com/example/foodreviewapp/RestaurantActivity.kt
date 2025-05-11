@@ -82,8 +82,10 @@ class RestaurantActivity : AppCompatActivity() {
 
                 if (reviewsSnapshot.exists() && reviewsSnapshot.value != "") {
                     for (reviewSnapshot in reviewsSnapshot.children) {
+                        val rName : String = reviewSnapshot.key ?: "Anonymous"
                         val review = Review(
-                            reviewerName = reviewSnapshot.key ?: "Anonymous",
+                            reviewerName = rName.filter { char ->
+                                char.isLetter() || char == ' ' || char == '.' || char == '\'' ||  char == ',' },
                             rating = reviewSnapshot.child("Rating").getValue(Int::class.java) ?: 0,
                             reviewText = reviewSnapshot.child("Text").getValue(String::class.java) ?: "",
                             date = reviewSnapshot.child("Date").getValue(String::class.java) ?: "",
@@ -93,6 +95,7 @@ class RestaurantActivity : AppCompatActivity() {
                     }
                 }
 
+                restaurant.sortReviewsByDate()
                 reviewsAdapter = ReviewsAdapter(restaurant.getReviews())
                 recyclerView.adapter = reviewsAdapter
 
