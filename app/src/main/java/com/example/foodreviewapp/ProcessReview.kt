@@ -66,6 +66,7 @@ class ProcessReview :  AppCompatActivity(){
         restaurantRef = database.getReference(restaurantName)
         ratingBar = findViewById(R.id.ratingBarInput)
         ratingValue = findViewById(R.id.tvRatingValue)
+        reviewTextBox = findViewById(R.id.etReviewText)
         ratingBar.setOnRatingBarChangeListener { _, rating, _ ->
             ratingValue.text = "$rating"
         }
@@ -86,7 +87,7 @@ class ProcessReview :  AppCompatActivity(){
         editor.putInt("REVIEW_NUMBER", int + 1)
         editor.commit()
         val rating = ratingBar.rating.toDouble()
-        reviewTextBox = findViewById(R.id.etReviewText)
+
         val reviewText = reviewTextBox.text.toString().trim()
 
         if (reviewerName.isEmpty()) {
