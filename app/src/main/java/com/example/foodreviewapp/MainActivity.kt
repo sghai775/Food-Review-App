@@ -1,6 +1,8 @@
 package com.example.foodreviewapp
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -8,6 +10,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
+import android.widget.EditText
 import android.widget.RelativeLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -30,12 +33,25 @@ class MainActivity : AppCompatActivity() {
     private lateinit var autoComplete: AutoCompleteTextView
     private lateinit var adView : AdView
     private lateinit var addRestaurantBtn: Button
+    private lateinit var setNameBtn : Button
+    private lateinit var nameEt : EditText
+
+    private lateinit var pref : SharedPreferences
+    private lateinit var editor : SharedPreferences.Editor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        pref = this.getSharedPreferences( this.packageName + "_preferences", Context.MODE_PRIVATE )
+        editor = pref.edit()
+        setNameBtn = findViewById(R.id.btn_set_name)
+        nameEt = findViewById(R.id.et_name)
+        nameEt.setText(pref.getString("REVIEWER_NAME", "Anonymous"))
+        setNameBtn.setOnClickListener {
+            setName()
+        }
         // gets the view by ID
         autoComplete = findViewById(R.id.search_view)
         addRestaurantBtn = findViewById(R.id.btnGoToAddRestaurant)
@@ -95,6 +111,12 @@ class MainActivity : AppCompatActivity() {
         val adLayout : ConstraintLayout = findViewById(R.id.banner_ad)
         adLayout.addView(adView)
         adView.loadAd(request)
+    }
+
+    private fun setName() {
+        val name : String = nameEt.text.toString()
+        editor.putString("REVIEWER_NAME", name)
+        editor.commit()
     }
 
     // function that creates intent and passes restaurant name to next activity
