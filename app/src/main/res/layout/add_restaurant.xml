@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/addRestaurantRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".AddRestaurantActivity">
+
+
+    <TextView
+        android:id="@+id/tvAddRestaurantTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Add a New Restaurant"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <EditText
+        android:id="@+id/etRestaurantNameInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Restaurant Name"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@id/tvAddRestaurantTitle"
+        app:layout_constraintBottom_toTopOf="@id/etFoodTypeInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <EditText
+        android:id="@+id/etFoodTypeInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Type of Food"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/etRestaurantNameInput"
+        app:layout_constraintBottom_toTopOf="@id/btnCancelRestaurant"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <Button
+        android:id="@+id/btnCancelRestaurant"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnSubmitRestaurant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintHorizontal_weight="1" />
+
+    <Button
+        android:id="@+id/btnSubmitRestaurant"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Add Restaurant"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toEndOf="@id/btnCancelRestaurant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

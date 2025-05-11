@@ -31,7 +31,9 @@ class RestaurantActivity : AppCompatActivity() {
     private lateinit var reviewsAdapter: ReviewsAdapter
     private lateinit var reviewButton : FloatingActionButton
     private lateinit var name : String
+    private lateinit var backButton : FloatingActionButton
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.restaurant_view)
@@ -40,6 +42,7 @@ class RestaurantActivity : AppCompatActivity() {
         rating = findViewById(R.id.average_rating_bar)
         averageRating = findViewById(R.id.average_rating_text)
         recyclerView = findViewById((R.id.reviews_recycler_view))
+
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         reviewsAdapter = ReviewsAdapter(emptyList())
@@ -54,6 +57,12 @@ class RestaurantActivity : AppCompatActivity() {
             val intent : Intent = Intent(this, ProcessReview::class.java)
             intent.putExtra("NAME", name)
             startActivity(intent)
+        }
+        backButton = findViewById(R.id.backButton)
+        backButton.setOnClickListener{
+            finish()
+
+
         }
 
     }

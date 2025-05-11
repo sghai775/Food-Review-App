@@ -11,7 +11,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.25" />
 
-    <!-- Top Section (Restaurant Info) -->
+
     <LinearLayout
         android:id="@+id/restaurant_info_section"
         android:layout_width="0dp"
@@ -72,7 +72,7 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Bottom Section (Reviews) -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reviews_recycler_view"
         android:layout_width="0dp"
@@ -85,7 +85,16 @@
         android:clipToPadding="false"
         android:scrollbars="vertical"/>
 
-    <!-- Button to leave a review -->
+    <!-- Bottom-left FAB -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src= "@drawable/back_arrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/leaveReview"
         android:layout_width="wrap_content"
@@ -95,4 +104,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="16dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

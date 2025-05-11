@@ -31,7 +31,7 @@
 
         <activity android:name=".RestaurantActivity"/>
         <activity android:name=".ProcessReview"/>
-
+        <activity android:name=".AddRestaurantActivity" />
         <activity android:name="com.google.android.gms.ads.AdActivity" />
     </application>
 

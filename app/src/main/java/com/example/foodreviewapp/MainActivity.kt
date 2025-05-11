@@ -7,6 +7,7 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Button
 import android.widget.RelativeLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     private val dbRef = FirebaseDatabase.getInstance().reference
     private lateinit var autoComplete: AutoCompleteTextView
     private lateinit var adView : AdView
+    private lateinit var addRestaurantBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +38,12 @@ class MainActivity : AppCompatActivity() {
 
         // gets the view by ID
         autoComplete = findViewById(R.id.search_view)
+        addRestaurantBtn = findViewById(R.id.btnGoToAddRestaurant)
 
+        addRestaurantBtn.setOnClickListener {
+            val intent = Intent(this, AddRestaurantActivity::class.java)
+            startActivity(intent)
+        }
         // real time event listener on database
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot : DataSnapshot) {

@@ -38,6 +38,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:completionThreshold="1"/>
 
+    <Button
+        android:id="@+id/btnGoToAddRestaurant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Restaurant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/banner_ad"
+        android:layout_margin="16dp" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/banner_ad"
         android:layout_width="0dp"
