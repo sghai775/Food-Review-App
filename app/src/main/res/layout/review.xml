@@ -59,7 +59,6 @@
         android:autofillHints="name"
         android:hint="@string/enter_your_name_review"
         android:inputType="textPersonName"
-        android:focusable="false"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@id/tvNameLabel"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,16 +89,32 @@
         app:layout_constraintBottom_toTopOf="@id/btnSubmitReview" />
 
     <!-- Submit Button -->
+
+    <Button
+        android:id="@+id/btnCancelReview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintTop_toBottomOf="@id/etReviewText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnSubmitReview"
+        app:layout_constraintHorizontal_weight="1" />
+
     <Button
         android:id="@+id/btnSubmitReview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/submit_review"
+        android:text="Submit Review"
         android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
         app:layout_constraintTop_toBottomOf="@id/etReviewText"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnCancelReview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintHorizontal_weight="1" />
 
     <ImageButton
         android:id="@+id/btnMic"

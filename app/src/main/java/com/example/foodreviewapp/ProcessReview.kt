@@ -51,6 +51,7 @@ class ProcessReview :  AppCompatActivity(){
     private lateinit var speechRecognizer: SpeechRecognizer
     private lateinit var speechIntent: Intent
     private lateinit var permissionLauncher: ActivityResultLauncher<String>
+    private lateinit var cancel : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,6 +74,10 @@ class ProcessReview :  AppCompatActivity(){
         submit = findViewById(R.id.btnSubmitReview)
         submit.setOnClickListener {
             submitReview()
+        }
+        cancel = findViewById(R.id.btnCancelReview)
+        cancel.setOnClickListener{
+            finish()
         }
 
         btnSpeech = findViewById(R.id.btnMic)
