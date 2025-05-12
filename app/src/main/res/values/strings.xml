@@ -19,4 +19,6 @@
     <string name="category_hint">Category</string>
     <string name="new_restaurant_cancel">Cancel</string>
     <string name="add_restaurant_submit">Add Restaurant</string>
+    <string name="enter_your_name_preference">Enter your name</string>
+    <string name="set_name">Set Name</string>
 </resources>

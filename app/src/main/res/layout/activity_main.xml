@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="8dp"
-        android:hint="Enter your name"
+        android:hint="@string/enter_your_name_preference"
         android:inputType="text"
         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ .,'"
         app:layout_constraintBottom_toTopOf="@id/btn_set_name"
@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginBottom="16dp"
-        android:text="Set Name"
+        android:text="@string/set_name"
         app:layout_constraintBottom_toTopOf="@id/banner_ad"
         app:layout_constraintStart_toStartOf="parent" />
 
