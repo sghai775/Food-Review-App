@@ -13,4 +13,5 @@
     <string name="your_review_title">Your Review:</string>
     <string name="your_review_name_title">Your Name:</string>
     <string name="favorite_restaurant_text">This is your favorite restaurant!</string>
+    <string name="cancel_review">Cancel</string>
 </resources>

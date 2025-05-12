@@ -10,7 +10,7 @@ class Restaurant {
     private var averageRating : Float = 0.0f
     private var totalRating : Float = 0.0f
     private var numRatings : Int = 0
-    private lateinit var reviews : ArrayList<Review>
+    private var reviews : ArrayList<Review>
 
     constructor(name : String, category : String, totalRating : Float, numRatings : Int, averageRating : Float) {
         this.name = name

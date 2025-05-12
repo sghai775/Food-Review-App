@@ -12,26 +12,24 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.RatingBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 
 class RestaurantActivity : AppCompatActivity() {
-    private lateinit var restaurantName : TextView;
-    private lateinit var typeOfFood : TextView;
-    private lateinit var rating : RatingBar;
-    private lateinit var averageRating : TextView;
-    private lateinit var restaurant : Restaurant;
-    private lateinit var recyclerView: RecyclerView;
+    private lateinit var restaurantName : TextView
+    private lateinit var typeOfFood : TextView
+    private lateinit var rating : RatingBar
+    private lateinit var averageRating : TextView
+    private lateinit var restaurant : Restaurant
+    private lateinit var recyclerView: RecyclerView
     private lateinit var reviewsAdapter: ReviewsAdapter
     private lateinit var reviewButton : FloatingActionButton
     private lateinit var name : String
@@ -78,6 +76,8 @@ class RestaurantActivity : AppCompatActivity() {
         favButton.setOnClickListener{
             editor.putString("favorite", restaurantName.text.toString())
             editor.apply()
+            val favToast = Toast.makeText(this, "Favorite Restaurant Chosen", Toast.LENGTH_SHORT)
+            favToast.show()
         }
     }
 
@@ -90,7 +90,7 @@ class RestaurantActivity : AppCompatActivity() {
                 val numRating = snapshot.child("NumRating").getValue(Int::class.java) ?: 0
                 val totalRating = snapshot.child("TotalRating").getValue(Float::class.java) ?: 0f
 
-                restaurant = Restaurant(name, category, totalRating, numRating, avgRating);
+                restaurant = Restaurant(name, category, totalRating, numRating, avgRating)
 
                 val reviewsSnapshot = snapshot.child("Reviews")
 
