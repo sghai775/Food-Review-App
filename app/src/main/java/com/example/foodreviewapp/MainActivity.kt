@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var addRestaurantBtn: Button
     private lateinit var setNameBtn : Button
     private lateinit var nameEt : EditText
-
+    private lateinit var restaurantNames : List<String>
     private lateinit var pref : SharedPreferences
     private lateinit var editor : SharedPreferences.Editor
 
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot : DataSnapshot) {
                 // get a string list of all top level children, which are the restaurant names
-                val restaurantNames : List<String> = snapshot.children.mapNotNull { it.key }
+                restaurantNames = snapshot.children.mapNotNull { it.key }
                 // converts the list to an array adapter and populates the autocomplete element
                 val adapter = ArrayAdapter(this@MainActivity, android.R.layout.simple_list_item_1, restaurantNames)
                 autoComplete.setAdapter(adapter)
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         autoComplete.setOnEditorActionListener { v, _, event ->
             if (event.action == KeyEvent.ACTION_DOWN && event.keyCode == KeyEvent.KEYCODE_ENTER) {
                 val typed = v.text.toString().trim()
-                if (typed.isNotEmpty()) {
+                if (typed.isNotEmpty() && typed in restaurantNames) {
                     goToRestaurantView(typed)
                 }
                 true
