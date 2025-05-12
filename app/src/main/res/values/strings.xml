@@ -14,4 +14,9 @@
     <string name="your_review_name_title">Your Name:</string>
     <string name="favorite_restaurant_text">This is your favorite restaurant!</string>
     <string name="cancel_review">Cancel</string>
+    <string name="add_a_new_restaurant_title">Add a New Restaurant</string>
+    <string name="restaurant_name_hint">Restaurant Name</string>
+    <string name="category_hint">Category</string>
+    <string name="new_restaurant_cancel">Cancel</string>
+    <string name="add_restaurant_submit">Add Restaurant</string>
 </resources>

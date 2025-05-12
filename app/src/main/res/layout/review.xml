@@ -13,6 +13,7 @@
         android:text="@string/leave_a_review_title"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:layout_marginTop="40dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

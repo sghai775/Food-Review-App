@@ -28,9 +28,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/restaurant_view_name"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
             android:gravity="center"
-            android:textSize="30sp"
+            android:textSize="33sp"
             android:textStyle="bold" />
 
         <TextView
@@ -48,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/restaurant_view_category"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:textSize="21sp"
             />
 
@@ -77,7 +77,7 @@
                 android:isIndicator="true"
                 android:numStars="5"
                 android:rating="4.69"
-                android:progressTint="#FFFF00"
+                android:progressTint="@color/ratingStars"
                 android:stepSize="0.5" />
         </LinearLayout>
     </LinearLayout>
