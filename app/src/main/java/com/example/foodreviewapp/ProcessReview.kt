@@ -1,13 +1,11 @@
 package com.example.foodreviewapp
+
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.speech.SpeechRecognizer
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RatingBar
@@ -15,10 +13,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.DataSnapshot
@@ -49,7 +43,6 @@ class ProcessReview :  AppCompatActivity(){
     private lateinit var editor : SharedPreferences.Editor
     private lateinit var btnSpeech : ImageButton
     private lateinit var speechRecognizer: SpeechRecognizer
-    private lateinit var speechIntent: Intent
     private lateinit var permissionLauncher: ActivityResultLauncher<String>
     private lateinit var cancel : Button
 
